@@ -553,10 +553,18 @@
             wwsTerminalFee: 508.77,
             brokerageFee: 375,
             gemmyFeeJPY: 580000,
-            jdmRushFee: 3500,
             financeAdminFee: 225,
             auctionFees: 800,
         };
+        
+        // JDM Rush Import Fee - Tiered based on vehicle value in CAD
+        // Matches Google Sheet formula: =IF(E5<=10000, 1000, IF(E5<=20000, 1500, IF(E5<=30000, 2000, 3500)))
+        function getJdmRushFee(vehicleValueCAD) {
+            if (vehicleValueCAD <= 10000) return 1000;
+            if (vehicleValueCAD <= 20000) return 1500;
+            if (vehicleValueCAD <= 30000) return 2000;
+            return 3500;
+        }
         
         // Duty rates
         const DUTY_RATES = {
@@ -730,6 +738,9 @@
             // Transport cost
             const transportCost = transportData.cost;
             
+            // JDM Rush Fee - TIERED based on vehicle value in CAD
+            const jdmRushFee = getJdmRushFee(vehicleValueCAD);
+            
             // Total cost calculation
             const total = 
                 vehicleValueCAD +
@@ -739,7 +750,7 @@
                 gstAmount +
                 FEES.wwsTerminalFee +
                 FEES.brokerageFee +
-                FEES.jdmRushFee +
+                jdmRushFee +
                 gemmyFeeCAD +
                 FEES.auctionFees +
                 FEES.financeAdminFee +
