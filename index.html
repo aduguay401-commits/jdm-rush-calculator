@@ -15,7 +15,7 @@
         }
         
         body {
-            min-height: 100vh;
+            min-height: auto;
             background: linear-gradient(145deg, #0d0d0d 0%, #1a1a1a 50%, #0d0d0d 100%);
             font-family: 'Outfit', sans-serif;
             padding: 40px 20px;
@@ -969,6 +969,27 @@
         
         // Initialize
         fetchExchangeRate();
+    </script>
+    
+    <script>
+        // Auto-resize: tell parent iframe our actual height
+        function sendHeight() {
+            var height = document.documentElement.scrollHeight;
+            window.parent.postMessage({ type: 'calcResize', height: height }, '*');
+        }
+        
+        // Send height on load
+        window.addEventListener('load', sendHeight);
+        
+        // Send height whenever the page resizes
+        window.addEventListener('resize', sendHeight);
+        
+        // Watch for DOM changes (results appearing/hiding)
+        var observer = new MutationObserver(sendHeight);
+        observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
+        
+        // Also send after a short delay to catch any late renders
+        setTimeout(sendHeight, 500);
     </script>
 </body>
 </html>
