@@ -419,6 +419,178 @@
         .hidden {
             display: none;
         }
+        
+        /* ============================================ */
+        /* MOBILE RESPONSIVE - screens 600px and under */
+        /* ============================================ */
+        @media (max-width: 600px) {
+            body {
+                padding: 16px 10px;
+            }
+            
+            .calc-container {
+                max-width: 100%;
+            }
+            
+            /* Header - smaller on mobile */
+            .logo-jdm, .logo-rush {
+                font-size: 2.2rem;
+                letter-spacing: 2px;
+            }
+            
+            .logo-subtitle {
+                font-size: 0.65rem;
+                letter-spacing: 4px;
+                margin-bottom: 14px;
+            }
+            
+            .header-title {
+                font-size: 0.75rem;
+                letter-spacing: 3px;
+            }
+            
+            .header {
+                margin-bottom: 20px;
+            }
+            
+            /* Exchange rate bar */
+            .rate-display {
+                padding: 10px 12px;
+                margin-bottom: 14px;
+                flex-direction: column;
+                gap: 4px;
+                text-align: center;
+            }
+            
+            .rate-label {
+                font-size: 0.7rem;
+            }
+            
+            .rate-value {
+                font-size: 0.85rem;
+            }
+            
+            /* Calculator card */
+            .calc-card {
+                padding: 20px 16px;
+                border-radius: 16px;
+            }
+            
+            .form-group {
+                margin-bottom: 18px;
+            }
+            
+            .form-label {
+                font-size: 0.7rem;
+                margin-bottom: 6px;
+                letter-spacing: 1px;
+            }
+            
+            /* Price input */
+            .price-input {
+                padding: 14px 14px 14px 38px;
+                font-size: 1.2rem;
+                border-radius: 10px;
+            }
+            
+            .price-symbol {
+                font-size: 1.1rem;
+                left: 14px;
+            }
+            
+            /* Toggle buttons - prevent text wrapping */
+            .toggle-group {
+                gap: 8px;
+            }
+            
+            .toggle-btn {
+                padding: 12px 10px;
+                font-size: 0.78rem;
+                border-radius: 8px;
+                line-height: 1.2;
+            }
+            
+            /* Dropdown */
+            .select-input {
+                padding: 14px 40px 14px 12px;
+                font-size: 0.88rem;
+                border-radius: 10px;
+                background-position: right 12px center;
+                background-size: 18px;
+            }
+            
+            /* Calculate button */
+            .calc-button {
+                padding: 16px;
+                font-size: 0.9rem;
+                border-radius: 10px;
+                letter-spacing: 1.5px;
+            }
+            
+            /* Results card */
+            .result-card {
+                margin-top: 18px;
+                padding: 24px 20px;
+                border-radius: 16px;
+            }
+            
+            .result-label {
+                font-size: 0.75rem;
+                letter-spacing: 2px;
+            }
+            
+            .result-total {
+                font-size: 2.6rem;
+            }
+            
+            .result-city {
+                font-size: 0.85rem;
+                margin-bottom: 16px;
+            }
+            
+            .pst-box {
+                padding: 14px;
+                border-radius: 10px;
+            }
+            
+            .pst-label {
+                font-size: 0.7rem;
+            }
+            
+            .pst-amount {
+                font-size: 1.2rem;
+            }
+            
+            .result-disclaimer {
+                font-size: 0.65rem;
+                padding-top: 14px;
+            }
+            
+            /* Footer */
+            .footer {
+                margin-top: 24px;
+            }
+            
+            .footer p {
+                font-size: 0.75rem;
+            }
+            
+            .footer-btn {
+                padding: 10px 24px;
+                font-size: 0.7rem;
+            }
+            
+            /* Background glows - reduce on mobile for performance */
+            .bg-glow-1 {
+                width: 400px;
+                height: 400px;
+            }
+            
+            .bg-glow-2 {
+                width: 300px;
+                height: 300px;
+            }
+        }
     </style>
 </head>
 <body>
